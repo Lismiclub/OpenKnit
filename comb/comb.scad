@@ -18,5 +18,14 @@ module hook(length, width, height, thickness, outer)
     }
 }
 
-hook(30, 16.4, 4, 1, 3);
-translate([5,5,5]) hook(50,4,4, 1, 7);
+
+lWidth = 15.8;
+
+union(){
+       for(i = [ 0: 1: 10-1]){
+           //translate
+           translate([0,lWidth * i, 0] ){
+               #hook(30, lWidth, 4, 1, 3);
+           }
+       }
+   }
