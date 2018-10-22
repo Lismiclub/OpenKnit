@@ -27,10 +27,9 @@ void halfTube () {
     if (direction == BACKWARD_KNIT) {
       servosBack();
       goBackward(0);
+      numberRows++;
       direction = FORWARD_KNIT;
     }
-    
-    numberRows++;
   }
 }
 
