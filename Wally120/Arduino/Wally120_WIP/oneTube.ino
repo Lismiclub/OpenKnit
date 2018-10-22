@@ -31,7 +31,6 @@ void oneTube () {
       }
     }
 
-    //CW, moving right
     if (needleBed == 2) {
 
       servosBack();
