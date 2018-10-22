@@ -41,8 +41,9 @@ void goForward(int endpoint) {
 
   for (i = 0; i < stepsRotation; i++) {
     digitalWrite(steps, HIGH);
+    delayMicroseconds(speedRotation / 2);
     digitalWrite(steps, LOW);
-    delayMicroseconds(speedRotation);
+    delayMicroseconds(speedRotation / 2);
     
     if (encoderValue >= endpoint) {  //limits the movement to the left
       j = stepsRotation++;
@@ -59,8 +60,9 @@ void goBackward(int endpoint) {
 
   for ( i = 0; i < stepsRotation; i++) {
     digitalWrite(steps, HIGH);
+    delayMicroseconds(speedRotation / 2);
     digitalWrite(steps, LOW);
-    delayMicroseconds(speedRotation);
+    delayMicroseconds(speedRotation / 2);
     
     if (encoderValue <= endpoint) {  //limits the movement to the right
       j = stepsRotation++;
