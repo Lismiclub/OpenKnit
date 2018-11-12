@@ -3,10 +3,6 @@
 int steps = A1;
 int dir = A2;
 int reset = A0;
-int stepsRotation = 30000; //steps that the stepper does
-int i;
-int j;
-int h;
 boolean dirRotation = LOW;  //direction of rotation
 boolean endStopActive = false;
 
@@ -20,7 +16,6 @@ int lastMSB = 0;
 int lastLSB = 0;
 int increment = 1;
 
-int numberRows = 0;
 int needleBed = 1;           //front needle bed = 1 , back needle bed = 2
 //(to create tubular sections)the knitting carriage have two identical systems,
 //one operating in the front needle bed and the other in the back, they never operate at the same time.

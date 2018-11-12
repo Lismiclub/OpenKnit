@@ -1,5 +1,6 @@
 void halfTube(int forward_stop_knit) {
   int turnaround = forward_stop_knit + 135;
+  int numberRows = 0;
   
   while (numberRows < 100) {
     delay(10);
