@@ -8,6 +8,7 @@ int i;
 int j;
 int h;
 boolean dirRotation = LOW;  //direction of rotation
+boolean endStopActive = false;
 
 //encoder
 int encoderPin1 = 0;
@@ -67,7 +68,8 @@ void setup() {
   attachInterrupt(3, updateEncoder, CHANGE);
 
   //end stop
-  attachInterrupt(0, endStop, CHANGE);  //pin 3
+  attachInterrupt(0, endStopHit, CHANGE);  //pin 3
+  attachInterrupt(1, endStopReleased, CHANGE);  //pin 3
 
   //servo
   servoFB.attach(7);   // servo in the front needle bed selecting needles
