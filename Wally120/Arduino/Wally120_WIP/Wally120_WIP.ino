@@ -30,7 +30,7 @@ Servo servoBB;
 Servo servoBT;
 Servo servoSelection; //not used with Wally120 since it has only one Yarn Carrier
 
-int servoFB_in = 55;
+int servoFB_in = 35;
 int servoFB_mid = 80;
 int servoFB_out = 112; 
 int servoFT_in = 85; 
@@ -76,5 +76,12 @@ void setup() {
 }
 
 void loop(){
-  halfTube(350);  //scarfs, beanies, dresses (no sleeves), socks, etc
+  tube(350, 100);
+  doNothingAnymore();
+}
+
+void doNothingAnymore() {
+  while(true) {
+    delay(10000);
+  }
 }

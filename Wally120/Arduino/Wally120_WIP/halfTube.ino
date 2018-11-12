@@ -1,20 +1,23 @@
-void halfTube(int forward_stop_knit) {
-  int turnaround = forward_stop_knit + 135;
-  int numberRows = 0;
+
+/**
+ * Knit scarfs, beanies, dresses (no sleeves), socks, etc
+ * @param width: Width of the scarf, measured in encoder ticks
+ * @param height: Height of the scarf, measured in knitted rows
+ */
+void tube(int width, int height) {
+  int turnaround = width + 135;
   
-  while (numberRows < 100) {
+  for (int i = 0; i < height; i++) {
     delay(10);
 
     servosFront();
-    goForwardTo(forward_stop_knit);
+    goForwardTo(width);
     
     servosNoneFront();
     goForwardTo(turnaround);
     
     servosBack();
     goBackwardTo(0);
-    
-    numberRows++;
   }
 }
 
