@@ -1,5 +1,5 @@
   //stepper
-#define speedRotation 1000  //speed of the motor rotation
+#define speedRotation 500  //speed of the motor rotation
 int steps = A1;
 int dir = A2;
 int reset = A0;
@@ -15,12 +15,6 @@ long lastencoderValue = 0;
 int lastMSB = 0;
 int lastLSB = 0;
 int increment = 1;
-
-int needleBed = 1;           //front needle bed = 1 , back needle bed = 2
-//(to create tubular sections)the knitting carriage have two identical systems,
-//one operating in the front needle bed and the other in the back, they never operate at the same time.
-//carriage on the front needle bed operates only going to the left, while going to the right
-//the front systems is "deactivated" and the carriage only operates in the back needle bed
 
 //servo
 #include <Servo.h>
@@ -63,8 +57,8 @@ void setup() {
   attachInterrupt(3, updateEncoder, CHANGE);
 
   //end stop
-  attachInterrupt(0, endStopHit, CHANGE);  //pin 3
-  attachInterrupt(1, endStopReleased, CHANGE);  //pin 3
+  attachInterrupt(encoderPin1, endStopHit, CHANGE);  //pin 3
+  attachInterrupt(encoderPin2, endStopReleased, CHANGE);  //pin 3
 
   //servo
   servoFB.attach(7);   // servo in the front needle bed selecting needles

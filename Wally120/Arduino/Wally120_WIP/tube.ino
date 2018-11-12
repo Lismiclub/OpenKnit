@@ -22,10 +22,7 @@ void tube(int width, int height) {
 }
 
 void goForwardTo(int endpoint) {
-  digitalWrite(reset, LOW);
-  delay(100);
-  digitalWrite(reset, HIGH);
-  digitalWrite(dir, LOW);
+  setDirectionForward();
 
   while (encoderValue < endpoint) {
     moveOneStep();
@@ -33,21 +30,11 @@ void goForwardTo(int endpoint) {
 }
 
 void goBackwardTo(int endpoint) {
-  digitalWrite(reset, LOW);
-  delay(100);
-  digitalWrite(reset, HIGH);
-  digitalWrite(dir, HIGH);
+  setDirectionBackward();
 
   while(encoderValue > endpoint) {
     moveOneStep();
   }
-}
-
-void moveOneStep() {
-    digitalWrite(steps, HIGH);
-    delayMicroseconds(speedRotation / 2);
-    digitalWrite(steps, LOW);
-    delayMicroseconds(speedRotation / 2);
 }
 
 

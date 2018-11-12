@@ -17,7 +17,6 @@ void updateEncoder(){
 //end stop
 void endStopHit() {
   endStopActive = true;
-  needleBed = 1;
   dirRotation = LOW;
   increment = 1;
   encoderValue = 0;      //value is reset so starts counting needles from 0  15.5

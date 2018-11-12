@@ -1,5 +1,4 @@
 void servosFront(){
-
   //back servos
   servoBB.write(servoBB_out);
   servoBT.write(servoBT_out);
@@ -11,7 +10,6 @@ void servosFront(){
 }
 
 void servosBack(){
-  
   //front servos
   servoFB.write(servoFB_out);
   servoFT.write(servoFT_out);
