@@ -81,5 +81,5 @@ void setup() {
 }
 
 void loop(){
-  halfTube();  //scarfs, beanies, dresses (no sleeves), socks, etc
+  halfTube(350);  //scarfs, beanies, dresses (no sleeves), socks, etc
 }
