@@ -1,4 +1,4 @@
-  //stepper
+ // stepper
 #define speedRotation 500  //speed of the motor rotation
 int steps = A1;
 int dir = A2;
@@ -6,10 +6,15 @@ int reset = A0;
 boolean dirRotation = LOW;  //direction of rotation
 boolean endStopActive = false;
 
-//encoder
+// encoder
 const byte encoderPin1 = 0;
 const byte encoderPin2 = 1;
+const byte encoderInterrupt1 = 2;
+const byte encoderInterrupt2 = 3;
+
+// end stop
 const byte endStopPin = 3;
+const byte endStopInterrupt = 0;
 
 volatile int lastEncoded = 0;
 volatile long encoderValue = 0;
@@ -26,9 +31,9 @@ Servo servoBB;
 Servo servoBT;
 Servo servoSelection; //not used with Wally120 since it has only one Yarn Carrier
 
-int servoFB_in = 48;
+int servoFB_in = 65;
 int servoFB_mid = 80;
-int servoFB_out = 112; 
+int servoFB_out = 105; 
 int servoFT_in = 85; 
 int servoFT_out = 160; 
 
@@ -55,11 +60,11 @@ void setup() {
   pinMode(encoderPin2, INPUT);
   digitalWrite(encoderPin1, HIGH);
   digitalWrite(encoderPin2, HIGH);
-  attachInterrupt(digitalPinToInterrupt(encoderPin1), updateEncoder, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(encoderPin2), updateEncoder, CHANGE);
+  attachInterrupt(encoderInterrupt1, updateEncoder, CHANGE);
+  attachInterrupt(encoderInterrupt2, updateEncoder, CHANGE);
 
   //end stop
-  attachInterrupt(digitalPinToInterrupt(endStopInterrupt), endStopReleased, CHANGE);
+  attachInterrupt(0, endStopChanged, CHANGE);
 
   //servo
   servoFB.attach(7);   // servo in the front needle bed selecting needles

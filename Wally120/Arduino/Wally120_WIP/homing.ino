@@ -1,7 +1,7 @@
 // brings carriage to the rightmost, needle 0
 
 void homing() {
-  initEndStop();
+  readEndStop();
 
   setDirectionBackward();
   
@@ -12,6 +12,6 @@ void homing() {
   servosNoneBack();
 } 
 
-void initEndStop() {
-  endStopActive = (digitalRead(encoderPin1) == HIGH);
+void readEndStop() {
+  endStopActive = (digitalRead(endStopPin) == HIGH);
 }
