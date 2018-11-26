@@ -7,8 +7,10 @@ boolean dirRotation = LOW;  //direction of rotation
 boolean endStopActive = false;
 
 //encoder
-int encoderPin1 = 0;
-int encoderPin2 = 1;
+const byte encoderPin1 = 0;
+const byte encoderPin2 = 1;
+const byte endStopPin = 3;
+
 volatile int lastEncoded = 0;
 volatile long encoderValue = 0;
 long lastencoderValue = 0;
@@ -53,12 +55,11 @@ void setup() {
   pinMode(encoderPin2, INPUT);
   digitalWrite(encoderPin1, HIGH);
   digitalWrite(encoderPin2, HIGH);
-  attachInterrupt(2, updateEncoder, CHANGE);
-  attachInterrupt(3, updateEncoder, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(encoderPin1), updateEncoder, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(encoderPin2), updateEncoder, CHANGE);
 
   //end stop
-  attachInterrupt(encoderPin1, endStopHit, CHANGE);  //pin 3
-  attachInterrupt(encoderPin2, endStopReleased, CHANGE);  //pin 3
+  attachInterrupt(digitalPinToInterrupt(endStopInterrupt), endStopReleased, CHANGE);
 
   //servo
   servoFB.attach(7);   // servo in the front needle bed selecting needles
