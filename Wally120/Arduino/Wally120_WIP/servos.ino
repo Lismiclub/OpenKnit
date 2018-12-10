@@ -37,7 +37,7 @@ void servosNoneBack(){
   servoFT.write(servoFT_out);
   delay (50);
   //back servos
-  servoBB.write(servoBB_out);
-  servoBT.write(servoBT_out);
+  servoBB.write(servoBB_mid);
+  servoBT.write(servoBT_in);
   delay (2000);
 }
