@@ -31,7 +31,7 @@ Servo servoBB;
 Servo servoBT;
 Servo servoSelection; //not used with Wally120 since it has only one Yarn Carrier
 
-int servoFB_in = 65;
+int servoFB_in = 62;
 int servoFB_mid = 80;
 int servoFB_out = 105; 
 int servoFT_in = 85; 
