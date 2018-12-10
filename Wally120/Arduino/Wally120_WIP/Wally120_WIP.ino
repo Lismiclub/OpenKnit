@@ -76,7 +76,7 @@ void setup() {
 }
 
 void loop(){
-  tube(350, 100);
+  tube(353, 100, 128);
   doNothingAnymore();
 }
 
