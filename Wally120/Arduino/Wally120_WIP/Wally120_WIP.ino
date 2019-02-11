@@ -1,5 +1,5 @@
  // stepper
-#define speedRotation 500  //speed of the motor rotation
+int speedRotation = 1000;  //delay of the motor rotation. The lower the faster
 int steps = A1;
 int dir = A2;
 int reset = A0;
@@ -33,12 +33,12 @@ Servo servoSelection; //not used with Wally120 since it has only one Yarn Carrie
 
 int servoFB_in = 62;
 int servoFB_mid = 80;
-int servoFB_out = 105; 
-int servoFT_in = 85; 
-int servoFT_out = 160; 
+int servoFB_out = 105;
+int servoFT_in = 85;
+int servoFT_out = 160;
 
-int servoBB_in = 55;
-int servoBB_mid = 80;
+int servoBB_in = 60;
+int servoBB_mid = 75;
 int servoBB_out = 105;
 int servoBT_in = 60;
 int servoBT_out = 130;
@@ -76,7 +76,7 @@ void setup() {
 }
 
 void loop(){
-  tube(353, 100, 128);
+  tube(355, 100, 128);
   doNothingAnymore();
 }
 

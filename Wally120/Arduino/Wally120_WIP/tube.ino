@@ -5,30 +5,29 @@
  * @param offset: Offset at the start, measured in encoder ticks
  */
 void tube(int width, int height, int offset) {
-  int hotPhase = 132;
-  
-  int startForward = offset;
-  int endForward = startForward + width;
-  int startBackward = endForward + hotPhase;
-  int endBackward = startForward + hotPhase;
-  
-  for (int i = 0; i < height; i++) {
-    delay(10);
-    
-    servosNoneFront();
-    goForwardTo(startForward);
+  int shift = 130;
 
+  int startForward = 128;
+  int endForward = 483;
+  int startBackward = endForward + shift;
+  int endBackward = startForward + shift - 3;
+
+
+  servosNoneFront();
+  goForwardTo(startForward);
+
+  for (int i = 0; i < height; i++) {
     servosFront();
     goForwardTo(endForward);
-    
+
     servosNoneFront();
     goForwardTo(startBackward);
-    
+
     servosBack();
     goBackwardTo(endBackward);
-    
+
     servosNoneBack();
-    goBackwardTo(0);
+    goBackwardTo(startForward);
   }
 }
 
@@ -47,5 +46,3 @@ void goBackwardTo(int endpoint) {
     moveOneStep();
   }
 }
-
-
