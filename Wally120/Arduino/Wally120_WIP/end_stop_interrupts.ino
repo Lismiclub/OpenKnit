@@ -11,6 +11,7 @@ void updateEncoder(){
   if (sum == 0b1101 || sum == 0b0100 || sum == 0b0010 || sum == 0b1011) encoderValue = encoderValue - increment;
 
   lastEncoded = encoded; //store this value for next time
+  encoderHasChanged = true;
 }
 
 //end stop
@@ -22,8 +23,3 @@ void endStopChanged() {
     encoderValue = 0;      //value is reset so starts counting needles from 0  15.5
   }
 }
-
-
-
-
-
