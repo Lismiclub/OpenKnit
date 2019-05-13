@@ -25,6 +25,7 @@ void goForwardTo(int endpoint) {
   setDirectionForward();
 
   while (encoderValue < endpoint) {
+    updateDisplay();
     moveOneStep();
   }
 }
@@ -33,8 +34,7 @@ void goBackwardTo(int endpoint) {
   setDirectionBackward();
 
   while(encoderValue > endpoint) {
+    updateDisplay();
     moveOneStep();
   }
 }
-
-

@@ -46,6 +46,8 @@ int servoBT_out = 130;
 int servoYarn_in = 65;
 int servoYarn_out = 100;
 
+bool encoderHasChanged = true;
+
 
 void setup() {
   Serial.begin (9600);
@@ -71,6 +73,8 @@ void setup() {
   servoFT.attach(8);   // servo in the front needle bed stopping the loops rising up
   servoBB.attach(9);   // servo in the back needle bed selecting needles
   servoBT.attach(10);   // servo in the back needle bed stopping the loops rising up
+
+  setupDisplay();
 
   homing();  //carriage goes home before anything else to get coordinatee zero
 }
