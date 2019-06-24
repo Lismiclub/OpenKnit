@@ -6,7 +6,7 @@ void servosFront(){
   //front servos
   servoFB.write(servoFB_in);
   servoFT.write(servoFT_in);
-  delay (2000);
+  delay (500);
 }
 
 void servosBack(){
@@ -17,7 +17,7 @@ void servosBack(){
   //back servos
   servoBB.write(servoBB_in);
   servoBT.write(servoBT_in);
-  delay (2000);
+  delay (500);
 }
 
 void servosNoneFront(){
@@ -28,7 +28,7 @@ void servosNoneFront(){
   //front servos
   servoFB.write(servoFB_mid);
   servoFT.write(servoFT_in);
-  delay (2000);
+  delay (500);
 }
 
 void servosNoneBack(){
@@ -37,7 +37,7 @@ void servosNoneBack(){
   servoFT.write(servoFT_out);
   delay (50);
   //back servos
-  servoBB.write(servoBB_out);
-  servoBT.write(servoBT_out);
-  delay (2000);
+  servoBB.write(servoBB_mid);
+  servoBT.write(servoBT_in);
+  delay (500);
 }

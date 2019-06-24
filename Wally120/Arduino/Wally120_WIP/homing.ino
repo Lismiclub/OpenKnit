@@ -3,13 +3,13 @@
 void homing() {
   readEndStop();
 
+  servosNoneBack();
   setDirectionBackward();
   
   while (!endStopActive)       
   {
     moveOneStep();
   }
-  servosNoneBack();
 } 
 
 void readEndStop() {
